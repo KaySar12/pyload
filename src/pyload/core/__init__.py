@@ -49,7 +49,8 @@ class Core:
     DEFAULT_USERNAME = APPID
     DEFAULT_PASSWORD = APPID
     DEFAULT_DATADIR = os.path.join(
-        os.getenv("APPDATA") or USERHOMEDIR, "pyLoad" if os.name == "nt" else ".pyload"
+        os.getenv(
+            "APPDATA") or USERHOMEDIR, "pyLoad" if os.name == "nt" else ".pyload"
     )
     DEFAULT_TMPDIR = os.path.join(tempfile.gettempdir(), "pyLoad")
     DEFAULT_STORAGEDIR = os.path.join(USERHOMEDIR, "Downloads", "pyLoad")
@@ -99,7 +100,8 @@ class Core:
         self._init_config(userdir, tempdir, storagedir, debug)
         self._init_log()
         if storagedir is not None:
-            self.log.warning("Download folder was specified from the commandline")
+            self.log.warning(
+                "Download folder was specified from the commandline")
         self._init_database(reset and not dry)
         self._init_network()
         self._init_api()
@@ -134,7 +136,8 @@ class Core:
             storagedir = self.config.get("general", "storage_folder")
             # Make sure storage_folder is not empty
             if not storagedir:
-                self.config.set("general", "storage_folder", "~/Downloads/pyLoad")
+                self.config.set("general", "storage_folder",
+                                "~/Downloads/pyLoad")
                 storagedir = self.config.get("general", "storage_folder")
         else:
             self.config.set("general", "storage_folder", storagedir)
@@ -174,7 +177,8 @@ class Core:
     def _init_database(self, reset):
         from .threads.database_thread import DatabaseThread
 
-        db_path = os.path.join(self.userdir, "data", DatabaseThread.DB_FILENAME)
+        db_path = os.path.join(self.userdir, "data",
+                               DatabaseThread.DB_FILENAME)
         newdb = not os.path.isfile(db_path)
 
         self.db = DatabaseThread(self)
@@ -271,7 +275,8 @@ class Core:
             self.set_language(lang)
         except IOError as exc:
             if lang != "en":
-                self.log.warning(exc, exc_info=self.debug > 1, stack_info=self.debug > 2)
+                self.log.warning(exc, exc_info=self.debug >
+                                 1, stack_info=self.debug > 2)
             self._set_language(self.LOCALE_DOMAIN, fallback=True)
 
     # def _setup_niceness(self):
@@ -368,7 +373,8 @@ class Core:
             self.log.debug("Starting core...")
 
             if self.debug:
-                debug_level = reversemap(self.DEBUG_LEVEL_MAP)[self.debug].upper()
+                debug_level = reversemap(self.DEBUG_LEVEL_MAP)[
+                    self.debug].upper()
                 self.log.debug(f"Debug level: {debug_level}")
 
             # self.evm.fire('pyload:starting')
@@ -381,7 +387,8 @@ class Core:
             self.log.info(self._("Cache directory: {}").format(self.tempdir))
 
             storage_folder = self.config.get("general", "storage_folder")
-            self.log.info(self._("Storage directory: {}").format(storage_folder))
+            self.log.info(
+                self._("Storage directory: {}").format(storage_folder))
 
             avail_space = format.size(fs.free_space(storage_folder))
             self.log.info(self._("Storage free space: {}").format(avail_space))
@@ -432,7 +439,8 @@ class Core:
             if os.name == "nt":
                 sys.exit(70)
             else:
-                sys.exit(os.EX_SOFTWARE)  #: this kind of stuff should not be here!
+                #: this kind of stuff should not be here!
+                sys.exit(os.EX_SOFTWARE)
 
     def is_client_connected(self):
         return (self.last_client_connected + 30) > time.time()

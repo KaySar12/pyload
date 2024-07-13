@@ -165,7 +165,7 @@ class SettingsUI {
       });
 
       $('quit-pyload').addEvent("click", function(e) {
-          new MooDialog.Confirm("{{_('You are really sure you want to quit pyLoad?')}}", function() {
+          new MooDialog.Confirm("{{_('You are really sure you want to quit NextGet?')}}", function() {
                   return new Request.JSON({
                       url: "{{url_for('api.rpc', func='kill')}}",
                       method: 'get'
@@ -176,11 +176,11 @@ class SettingsUI {
       });
 
       return $('restart-pyload').addEvent("click", function(e) {
-          new MooDialog.Confirm("{{_('Are you sure you want to restart pyLoad?')}}", function() {
+          new MooDialog.Confirm("{{_('Are you sure you want to restart NextGet?')}}", function() {
                   return new Request.JSON({
                       url: "{{url_for('api.rpc', func='restart')}}",
                       method: 'get',
-                      onSuccess(data) { return alert("{{_('pyLoad restarted')}}"); }
+                      onSuccess(data) { return alert("{{_('NextGet restarted')}}"); }
                   }).send();
               }
               , function() {});

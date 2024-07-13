@@ -14,8 +14,8 @@
 {% block pageactions %}
 {% if user.is_admin %}
   <div class="btn-group btn-group-sm" role="group" aria-label="...">
-    <button id="quit-pyload" class="btn btn-danger" data-toggle="modal" data-target="#quit_box"><span class="glyphicon glyphicon-off"></span> {{_('Quit pyLoad')}}</button>
-    <button id="restart-pyload" class="btn btn-warning" data-toggle="modal" data-target="#restart_box"><span class="glyphicon glyphicon-repeat"></span> {{_('Restart pyLoad')}}</button>
+    <button id="quit-pyload" class="btn btn-danger" data-toggle="modal" data-target="#quit_box"><span class="glyphicon glyphicon-off"></span> {{_('Quit NextGet')}}</button>
+    <button id="restart-pyload" class="btn btn-warning" data-toggle="modal" data-target="#restart_box"><span class="glyphicon glyphicon-repeat"></span> {{_('Restart NextGet')}}</button>
   </div>
 {% endif %}
 {% endblock %}
@@ -275,13 +275,13 @@
 
 <div id="restart_msg" class="hidden" style="position:fixed; z-index: 1; width: 100%;">
   <div align="center" class="alert alert-success">
-    <p style="font-weight: bold;">{{_('pyLoad is restarting...')}}</p>
+    <p style="font-weight: bold;">{{_('NextGet is restarting...')}}</p>
   </div>
 </div>
 
 <div id="shutdown_msg" class="hidden" style="position:fixed; z-index: 1; width: 100%;">
   <div align="center" class="alert alert-success">
-    <p style="font-weight: bold;">{{_('pyLoad was shut down, goodbye!')}}</p>
+    <p style="font-weight: bold;">{{_('NextGet was shut down, goodbye!')}}</p>
   </div>
 </div>
 
@@ -289,7 +289,7 @@
   <div class="modal-dialog modal-sm">
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px" >{{_('Are you sure you want to restart pyLoad?')}}</div>
+      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px" >{{_('Are you sure you want to restart NextGet?')}}</div>
       <div class="modal-body" style="margin-bottom: 30px;">
         <button class="btn btn-success" id="restart_button" type="submit" style="float: right">{{_('Ok')}}</button>
         <button class="btn btn-warning" data-dismiss="modal" id="restart_reset" style="margin-right: 5px; float: right" type="reset">{{_('Cancel')}}</button>
@@ -302,7 +302,7 @@
   <div class="modal-dialog modal-sm">
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px;" >{{_('You are really sure you want to quit pyLoad?')}}</div>
+      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px;" >{{_('You are really sure you want to quit NextGet?')}}</div>
       <div class="modal-body" style="margin-bottom: 30px;">
         <button class="btn btn-success" id="quit_button" type="submit" style="float: right">{{_('Ok')}}</button>
         <button class="btn btn-warning" data-dismiss="modal" id="quit_reset" style="margin-right: 5px; float: right" type="reset">{{_('Cancel')}}</button>
@@ -351,7 +351,7 @@
   <div class="modal-dialog modal-sm">
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px;" >{{_('Create new pyLoad login')}}</div>
+      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px;" >{{_('Create new NextGet login')}}</div>
       <div class="modal-body" style="margin-bottom: 30px;">
         <form id="user_add_form" class="from-group" action="{{url_for('json.add_user')}}" method="POST" enctype="multipart/form-data" style="margin-bottom: 40px;">
           <p>{{_('Enter new user name and password.')}}</p>
