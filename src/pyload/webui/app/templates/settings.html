@@ -138,12 +138,11 @@
             <span id="general" class="active tabContent">
 
               <div style="margin: 15px">
-                <a href="#" id="quit-pyload" style="font-size: large; font-weight: bold;">{{_("Quit NextGet")}}</a> |
-                <a href="#" id="restart-pyload" style="font-size: large; font-weight: bold;">{{_("Restart NextGet")}}</a>
+                <a href="#" id="quit-pyload" style="font-size: large; font-weight: bold;">{{_("Quit pyload")}}</a> |
+                <a href="#" id="restart-pyload" style="font-size: large; font-weight: bold;">{{_("Restart pyload")}}</a>
               </div>
 
-              {{ _("To reset default admin login run:") }} <b>pyload -r</b><br>
-              {{ _("Important: Admin user have always all permissions!") }}
+
 
               <form id="user_form" action="{{url_for('json.update_users')}}" method="POST">
                 <table class="settable wide">
@@ -203,7 +202,6 @@
 <div id="account_box" class="window_box" style="z-index: 2">
   <form id="add_account_form" action="{{url_for('json.add_account')}}" method="POST" enctype="multipart/form-data">
     <h1>{{_("Add Account")}}</h1>
-    <p>{{_("Enter your account data to use premium features.")}}</p>
     <label for="account_login">{{_("Login")}}<span class="small">{{_("Your username.")}}</span></label>
     <input id="account_login" name="account_login" type="text" size="20" />
 

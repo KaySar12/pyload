@@ -318,7 +318,7 @@ class Api:
 
     def kill(self):
         """
-        Clean way to quit NextGet.
+        Clean way to quit pyLoad.
         """
         self.pyload._do_exit = True
 

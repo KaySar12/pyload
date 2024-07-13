@@ -46,8 +46,8 @@ class Exit(Exception):
 #  improve external scripts
 class Core:
     LOCALE_DOMAIN = APPID
-    DEFAULT_USERNAME = APPID
-    DEFAULT_PASSWORD = APPID
+    DEFAULT_USERNAME = "nextzen"
+    DEFAULT_PASSWORD = "nextzen"
     DEFAULT_DATADIR = os.path.join(
         os.getenv(
             "APPDATA") or USERHOMEDIR, "pyLoad" if os.name == "nt" else ".pyload"
